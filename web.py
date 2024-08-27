@@ -15,6 +15,7 @@ def add_todo():
 def remove_todo(index):
     st.session_state.todos.pop(index)
     functions.write_todos(st.session_state.todos)
+    st.session_state.success_message = "Congratulations on completing your task!"
 
 # Streamlit app layout
 st.title("My Todo App")
@@ -33,6 +34,11 @@ for index, checked in enumerate(checkboxes):
         remove_todo(index)
         # After removing, break out of the loop to avoid issues with index changes
         break
+
+# Display success message if set
+if "success_message" in st.session_state:
+    st.success(st.session_state.success_message)
+    del st.session_state.success_message  # Clear the message after displaying
 
 # Text input for adding new todos
 st.text_input(
