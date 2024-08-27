@@ -14,7 +14,7 @@ def add_todo():
         st.session_state.new_todo = ""  # Clear the input field
 
 def remove_todo(index):
-    """Remove a todo from the list."""
+    """Remove a todo from the list.""
     st.session_state.todos.pop(index)
     functions.write_todos(st.session_state.todos)
 
