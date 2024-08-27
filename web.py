@@ -18,9 +18,24 @@ def remove_todo(index):
     st.session_state.success_message = "Congratulations on completing your task!"
 
 # Streamlit app layout
-st.title("My Todo App")
-st.subheader("This is my todo app")
-st.write("This app is to increase your productivity")
+st.markdown(
+    """
+    <style>
+    .centered-text {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+# Centering the title, subtitle, and description
+st.markdown('<div class="centered-text">', unsafe_allow_html=True)
+st.title("Task Ninja 📝")
+st.subheader("Tame your to-dos before they run wild!")
+st.write("Conquer Your Day, One Task at a time 🔪🔪🔪")
+st.markdown('</div>', unsafe_allow_html=True)
 
 # Create a list of todo checkboxes
 checkboxes = []
