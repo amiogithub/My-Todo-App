@@ -6,7 +6,6 @@ if "todos" not in st.session_state:
     st.session_state.todos = functions.get_todos()
 
 def add_todo():
-    """Add a new todo to the list."""
     new_todo = st.session_state.new_todo.strip()
     if new_todo:
         st.session_state.todos.append(new_todo + "\n")
@@ -14,7 +13,6 @@ def add_todo():
         st.session_state.new_todo = ""  # Clear the input field
 
 def remove_todo(index):
-    """Remove a todo from the list.""
     st.session_state.todos.pop(index)
     functions.write_todos(st.session_state.todos)
 
@@ -26,7 +24,6 @@ st.write("This app is to increase your productivity")
 # Create a list of todo checkboxes
 checkboxes = []
 for index, todo in enumerate(st.session_state.todos):
-    # Use a unique key for each checkbox
     checkbox = st.checkbox(todo, key=f"todo_{index}")
     checkboxes.append(checkbox)
 
